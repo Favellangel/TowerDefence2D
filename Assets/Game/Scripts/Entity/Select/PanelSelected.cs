@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelMomentor : MonoBehaviour
+public class PanelSelected : MonoBehaviour
 {
     private GameObject current;
     private GraphicRaycaster raycaster;

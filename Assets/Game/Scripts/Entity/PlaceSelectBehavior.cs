@@ -4,13 +4,13 @@ public class PlaceSelectBehavior : MonoBehaviour, ISelecteble
 {
     private Transform _transform;
 
-    private PanelMomentor panelMomentor;
+    private PanelSelected panelMomentor;
     private PanelBuildTowerController panelBuildTowerController;
 
     private void Awake()
     {
         _transform = transform;
-        panelMomentor = FindObjectOfType<PanelMomentor>();
+        panelMomentor = FindObjectOfType<PanelSelected>();
         panelBuildTowerController = FindObjectOfType<PanelBuildTowerController>(true);
     }
 

@@ -1,16 +1,16 @@
 using TMPro;
 using UnityEngine;
 
-public class CurrentHealth_Subscriber : MonoBehaviour
+public class PlayerHealthTxt : MonoBehaviour
 {
     private TextMeshProUGUI text;
     private HealthComponent healthComponent;
 
     private void Awake()
     {
-        GoldComponent goldComponent = FindObjectOfType<GoldComponent>(true);
+        Player player = FindObjectOfType<Player>(true);
 
-        healthComponent = goldComponent.GetComponent<HealthComponent>();
+        healthComponent = player.GetComponent<HealthComponent>();
         text = GetComponent<TextMeshProUGUI>();
     }
 

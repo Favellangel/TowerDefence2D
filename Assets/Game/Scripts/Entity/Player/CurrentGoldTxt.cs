@@ -1,14 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-public class CurrentGold_Subscriber : MonoBehaviour
+public class CurrentGoldTxt : MonoBehaviour
 {
     private TextMeshProUGUI text;
     private GoldComponent goldComponent;
 
     private void Awake()
     {
-        goldComponent = FindObjectOfType<GoldComponent>(true);
+        Player player = FindObjectOfType<Player>();
+        goldComponent = player.GetComponent<GoldComponent>();
 
         text = GetComponent<TextMeshProUGUI>();
     }

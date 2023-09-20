@@ -5,7 +5,7 @@ public class TowerSelectBehavior : MonoBehaviour, ISelecteble
     private Transform _transform;
     private GameObject _gameObject;
 
-    private PanelMomentor panelMomentor; 
+    private PanelSelected panelMomentor; 
     private SpriteRenderer affectedArea;
     private PanelUpgradeController panelUpgradeController;
 
@@ -15,16 +15,9 @@ public class TowerSelectBehavior : MonoBehaviour, ISelecteble
         _gameObject = gameObject;
 
         panelUpgradeController = FindObjectOfType<PanelUpgradeController>(true);
-        RadiusAttackOnEnable script = GetComponentInChildren<RadiusAttackOnEnable>();
+        RadiusAttackComponent script = GetComponentInChildren<RadiusAttackComponent>();
         affectedArea = script.GetComponent<SpriteRenderer>();
-        panelMomentor = FindObjectOfType<PanelMomentor>();
-    }
-
-    public void Selected(bool isSelect)
-    {
-        panelUpgradeController.Show(isSelect);
-        if (affectedArea == null) return;
-        affectedArea.enabled = isSelect;
+        panelMomentor = FindObjectOfType<PanelSelected>();
     }
 
     public void Select()
@@ -39,5 +32,12 @@ public class TowerSelectBehavior : MonoBehaviour, ISelecteble
     {
         Selected(false);
         panelMomentor.Set(null);
+    }
+
+    private void Selected(bool isSelect)
+    {
+        panelUpgradeController.Show(isSelect);
+        if (affectedArea == null) return;
+        affectedArea.enabled = isSelect;
     }
 }

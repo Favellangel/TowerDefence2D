@@ -4,11 +4,20 @@ using UnityEngine;
 public class SpawnerComponent : MonoBehaviour
 {
     [SerializeField] private float startDelay;
+    [SerializeField] private int wave;
     [SerializeField] private UnitData unitData;
     [SerializeField] private Transform[] points;
 
-    public void SatrtSpawn()
+    private WaveComponent waveComponent;
+
+    private void Awake()
     {
+        waveComponent = FindObjectOfType<WaveComponent>(true);
+    }
+
+    public void StartSpawn()
+    {
+        if (wave != waveComponent.CurrentWave) return;
         StartCoroutine(Spawn());
     }
 
@@ -20,11 +29,10 @@ public class SpawnerComponent : MonoBehaviour
         {
             GameObject enemy = Instantiate(unitData.prefab, transform.position, Quaternion.identity);
 
-            EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-            if (enemyMovement != null)
+            if (enemy.TryGetComponent(out EnemyMovement enemyMovement))
                 enemyMovement.Initialize(points);
 
-            yield return new WaitForSeconds(unitData.count);
+            yield return new WaitForSeconds(unitData.delaySpawn);
         }
     }
 }

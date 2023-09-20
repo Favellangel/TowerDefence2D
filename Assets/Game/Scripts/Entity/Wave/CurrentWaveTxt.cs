@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class CurrentWave_Subscriber : MonoBehaviour
+public class CurrentWaveTxt : MonoBehaviour
 {
     private TextMeshProUGUI text;
     private WaveComponent waveComponent;

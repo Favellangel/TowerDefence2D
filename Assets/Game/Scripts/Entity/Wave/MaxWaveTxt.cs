@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class MaxWave_Subscriber : MonoBehaviour
+public class MaxWaveTxt : MonoBehaviour
 {
     private TextMeshProUGUI text;
     private WaveComponent waveComponent;

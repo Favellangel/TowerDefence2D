@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GraphicsRaycastComponent : MonoBehaviour
 {
@@ -16,7 +16,12 @@ public class GraphicsRaycastComponent : MonoBehaviour
         eventData = new PointerEventData(eventSystem);
     }
 
-    public bool CheckOnClickOpenPanel(GameObject hit, GraphicRaycaster raycaster)
+    public GraphicsRaycastComponent(EventSystem eventSystem)
+    {
+        eventData = new PointerEventData(eventSystem);
+    }
+
+    public bool IsClickOpenPanel(GameObject hit, GraphicRaycaster raycaster)
     {
         if (raycaster == null) return false;
 

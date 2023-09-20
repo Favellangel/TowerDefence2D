@@ -6,8 +6,8 @@ public class PlayerTakeDamageBehavior : MonoBehaviour, IDamageble
 
     private void Awake()
     {
-        GoldComponent goldComponent = FindObjectOfType<GoldComponent>(true);
-        healthComponent = goldComponent.GetComponent<HealthComponent>();
+        Player player = FindObjectOfType<Player>();
+        healthComponent = player.GetComponent<HealthComponent>();
     }
 
     public void TakeDamage(int damage)

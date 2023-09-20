@@ -1,29 +1,23 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class BtnSellTowerSubscriber : MonoBehaviour
+public class BtnSellTowerSubscriber : BtnSubscriber
 {
     [SerializeField] private int sellingPrice;
 
     private GoldComponent goldComponent;
     private PanelUpgradeController panelUpgradeController;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        GetComponent<Button>().onClick.AddListener(Execute);
+        base.OnEnable();
+        Player player = FindObjectOfType<Player>();
+        goldComponent = player.GetComponent<GoldComponent>();
         panelUpgradeController = GetComponentInParent<PanelUpgradeController>();
-
-        goldComponent = FindObjectOfType<GoldComponent>(true);
     }
-
-    private void Execute()
+    protected override void Execute()
     {
-        if(goldComponent.AddGold(sellingPrice))
-        {
-            print(1);
+        if (goldComponent.AddGold(sellingPrice))
             panelUpgradeController.SellTower();
-        }
-
 
         transform.parent.gameObject.SetActive(false);
     }

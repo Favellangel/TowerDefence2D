@@ -22,7 +22,7 @@ public class TowerController : MonoBehaviour
             return;
         }
 
-        shootComponent.Shoot();
         rotateComponent.Rotate(findTargetComponent.GetTarget(0).transform.position);
+        shootComponent.Shoot();
     }
 }

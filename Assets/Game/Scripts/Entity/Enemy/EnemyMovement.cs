@@ -6,24 +6,39 @@ public class EnemyMovement : MonoBehaviour
 
     private int currentPoint;
 
+    private Vector2 direction;
+
+    private Rigidbody2D rb;
     private Transform[] points;
+
+    public float Speed => speed;
+    public Vector2 Direction => direction;
+
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     public void Initialize(Transform[] points)
     {
         this.points = points;
     }
 
-    private void Update()
-    {
-        Move();
-    }
-
-    private void Move()
+    public void Move()
     {
         if (points == null || points.Length == 0) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, points[currentPoint].position, Time.deltaTime * speed);
+        direction = points[currentPoint].position - transform.position;
+        direction.Normalize();
 
+        rb.MovePosition((Vector2)transform.position + direction * speed);
+
+        ChooseNextPoint();
+    }
+
+    private void ChooseNextPoint()
+    {
         if ((transform.position - points[currentPoint].position).magnitude > 0.01) return;
 
         currentPoint++;

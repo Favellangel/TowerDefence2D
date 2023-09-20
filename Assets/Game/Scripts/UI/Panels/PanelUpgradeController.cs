@@ -3,10 +3,15 @@ using UnityEngine;
 public class PanelUpgradeController : Panel
 {
     private GameObject currentTower;
+    private Tower tower;
 
-    public void SetTower(GameObject tower)
+    public Tower Tower => tower;
+
+
+    public void SetTower(GameObject towerObject)
     {
-        currentTower = tower;
+        currentTower = towerObject;
+        tower = currentTower.GetComponent<Tower>();
     }
 
     public void SellTower()
