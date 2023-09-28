@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class DeathWallBehavior : MonoBehaviour
 {
-    private HealthComponent healthComponent;
+    private IEventable onDie;
 
     private void Awake()
     {
-        healthComponent = GetComponent<HealthComponent>();
+        onDie = GetComponent<HealthComponent>();
     }
     private void OnEnable()
     {
-        healthComponent.AddActionOnDie(Death);
+        onDie.AddAction(Death);
     }
 
     private void OnDisable()
     {
-        healthComponent.RemoveActionOnDie(Death);
+        onDie.RemoveAction(Death);
     }
 
     private void OnDestroy()
     {
-        healthComponent.RemoveActionOnDie(Death);
+        onDie.RemoveAction(Death);
     }
 
     private void Death()

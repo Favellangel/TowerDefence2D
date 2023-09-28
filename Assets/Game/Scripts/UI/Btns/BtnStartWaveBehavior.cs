@@ -24,7 +24,7 @@ public class BtnStartWaveBehavior : BtnSubscriber
         CancelInvoke(nameof(Execute));
     }
 
-    private void SetDisable()
+    public void SetDisable()
     {
         Invoke(nameof(SetEnable), delayBtnShow);
         gameObject.SetActive(false);

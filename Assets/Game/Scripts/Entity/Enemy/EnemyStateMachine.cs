@@ -59,7 +59,7 @@ public class EnemyStateMachine : MonoBehaviour
         currentState = nextState;
         currentState.Enter();
         currentState.AddAction(ChangeState);
-        print(currentState.ToString());
+        //print(currentState.ToString());
     }
 }
 

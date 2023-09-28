@@ -476,6 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423588414}
   - component: {fileID: 423588417}
+  - component: {fileID: 423588418}
   - component: {fileID: 423588413}
   - component: {fileID: 423588415}
   - component: {fileID: 423588416}
@@ -558,6 +559,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68839c26e23792b4f92e5e895ad5204c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &423588418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423588412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ba2a74ce24dc944ba4f61b70e3e041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &438038956
@@ -893,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9088975786595877246, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: wave
@@ -1708,7 +1721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9088975786595877246, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: wave
@@ -1802,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9088975786595877246, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: wave
@@ -1990,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9088975786595877246, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: wave
@@ -2803,6 +2816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0aa12bcc1c878a4994598e10b24319a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBtnShow: 3
+  delayWaveRestart: 6
 --- !u!1 &1161420923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4076,6 +4091,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1501131855}
+  - component: {fileID: 1501131857}
+  - component: {fileID: 1501131856}
   m_Layer: 0
   m_Name: ----------SCRIPTS-------------
   m_TagString: Untagged
@@ -4101,6 +4118,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501131856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501131854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0afb06aa4ffc4f45b93d9b4336663bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1501131857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501131854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b23a9049cc2064ca04c896db4de13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621192631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,7 +5402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9088975786595877246, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       propertyPath: wave

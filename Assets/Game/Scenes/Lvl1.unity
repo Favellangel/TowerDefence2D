@@ -3237,6 +3237,27 @@ MonoBehaviour:
   points:
   - {fileID: 1335681206}
   - {fileID: 10992510}
+--- !u!114 &1335681210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335681204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b86987beacad92439958754d8c1c39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0.5
+  wave: 5
+  unitData:
+    prefab: {fileID: 6919473714164618029, guid: b4de236e53cb4e74db959d60d30dc39f, type: 3}
+    count: 15
+    delaySpawn: 1
+  points:
+  - {fileID: 1335681206}
+  - {fileID: 10992510}
 --- !u!1 &1358138359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3488,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1335681209}
+    - targetCorrespondingSourceObject: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1335681210}
   m_SourcePrefab: {fileID: 100100000, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
 --- !u!1 &1466240483
 GameObject:
@@ -3661,6 +3685,27 @@ MonoBehaviour:
   unitData:
     prefab: {fileID: 6919473714164618029, guid: b4de236e53cb4e74db959d60d30dc39f, type: 3}
     count: 12
+    delaySpawn: 1
+  points:
+  - {fileID: 1507228731}
+  - {fileID: 1101159861}
+--- !u!114 &1507228734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507228729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b86987beacad92439958754d8c1c39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 1
+  wave: 5
+  unitData:
+    prefab: {fileID: 6919473714164618029, guid: b4de236e53cb4e74db959d60d30dc39f, type: 3}
+    count: 15
     delaySpawn: 1
   points:
   - {fileID: 1507228731}
@@ -4266,6 +4311,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1507228732}
+    - targetCorrespondingSourceObject: {fileID: 3962169947622363187, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1507228734}
   m_SourcePrefab: {fileID: 100100000, guid: 2c311f4a87f8efb438f5187f1ed05915, type: 3}
 --- !u!1 &1891843998
 GameObject:

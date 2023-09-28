@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
 
-public class HealthComponent : MonoBehaviour
+public class HealthComponent : MonoBehaviour, IEventable
 {
     [SerializeField] private Property<int> hp;
     [SerializeField] private Property<int> maxHp;
 
     private Action onDie;
+    Action IEventable.OnChange { get => onDie; set => onDie = value; }
 
     #region Внешние поля
 
@@ -33,15 +34,5 @@ public class HealthComponent : MonoBehaviour
             hp.Set = 0;
             onDie?.Invoke();
         }
-    }
-
-    public void AddActionOnDie(Action action)
-    {
-        onDie += action;
-    }
-
-    public void RemoveActionOnDie(Action action)
-    {
-        onDie -= action;
     }
 }

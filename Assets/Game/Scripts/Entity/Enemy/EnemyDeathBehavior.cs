@@ -4,30 +4,31 @@ public class EnemyDeathBehavior : MonoBehaviour
 {
     [SerializeField] private float delayDeath;
 
+    private IEventable onDie;
     private Collider2D _collider2D;
     private EnemyStateMachine enemyState;
-    private HealthComponent healthComponent;
+
 
     private void Awake()
     {
+        onDie = GetComponent<HealthComponent>();
         _collider2D = GetComponent<Collider2D>();
         enemyState = GetComponent<EnemyStateMachine>();
-        healthComponent = GetComponent<HealthComponent>();
     }
 
     private void OnEnable()
     {
-        healthComponent.AddActionOnDie(Death);
+        onDie.AddAction(Death);
     }
 
     private void OnDisable()
     {
-        healthComponent.RemoveActionOnDie(Death);
+        onDie.RemoveAction(Death);
     }
 
     private void OnDestroy()
     {
-        healthComponent.RemoveActionOnDie(Death);
+        onDie.RemoveAction(Death);
     }
 
     private void Death()

@@ -2,24 +2,40 @@ using UnityEngine;
 
 public class WaveSubscriber : MonoBehaviour
 {
-    private WaveComponent waveComponent;
+    private IEventable onNextWave;
     private GoldMinerUpdater goldMinerUpdater;
     private SpawnerComponent[] spawnerComponents;
+    private BtnStartWaveBehavior btnStartWaveBehavior;
 
     private void Awake()
     {
+        onNextWave = GetComponent<WaveComponent>();
         Player player = FindObjectOfType<Player>();
-        waveComponent = GetComponent<WaveComponent>();
+
         spawnerComponents = FindObjectsOfType<SpawnerComponent>();
         goldMinerUpdater = player.GetComponent<GoldMinerUpdater>();
+        btnStartWaveBehavior = FindObjectOfType<BtnStartWaveBehavior>(true);
     }
 
     private void OnEnable()
     {
         foreach (var spawner in spawnerComponents)
         {
-            waveComponent.AddActionNextWave(spawner.StartSpawn);
+            onNextWave.AddAction(spawner.StartSpawn);
         }
-        waveComponent.AddActionNextWave(goldMinerUpdater.Activate);
+
+        onNextWave.AddAction(goldMinerUpdater.Activate);
+        onNextWave.AddAction(btnStartWaveBehavior.SetDisable);       
+    }
+
+    private void OnDisable()
+    {
+        foreach (var spawner in spawnerComponents)
+        {
+            onNextWave.RemoveAction(spawner.StartSpawn);
+        }
+
+        onNextWave.RemoveAction(goldMinerUpdater.Activate);
+        onNextWave.RemoveAction(btnStartWaveBehavior.SetDisable);
     }
 }

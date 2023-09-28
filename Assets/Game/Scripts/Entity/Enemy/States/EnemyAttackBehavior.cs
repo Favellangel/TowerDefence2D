@@ -35,7 +35,6 @@ public class EnemyAttackBehavior : State
         if (damageble.ToString() == Tags._null)
             onChangeState?.Invoke(state_IDLE);
 
-        Debug.Log(collisionComponent.TargetCollider.ToString());
         if (currentDelay <= 0)
         {
             damageble.TakeDamage(damageBehavior.Damage);
