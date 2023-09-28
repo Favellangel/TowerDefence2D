@@ -1,5 +1,5 @@
 
-public class BtnUpgradeGoldSubscriber : BtnSubscriber
+public class BtnUpgradeGoldBehavior : BtnSubscriber
 {
     private GoldMinerUpdater goldMainerUpdater;
 

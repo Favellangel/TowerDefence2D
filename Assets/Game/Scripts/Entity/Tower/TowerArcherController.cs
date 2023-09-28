@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TowerController : MonoBehaviour
+public class TowerArcherController : MonoBehaviour
 {
     private ShootComponent shootComponent;
     private RotateComponent rotateComponent;

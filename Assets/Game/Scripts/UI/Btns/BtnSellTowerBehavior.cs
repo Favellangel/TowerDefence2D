@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BtnSellTowerSubscriber : BtnSubscriber
+public class BtnSellTowerBehavior : BtnSubscriber
 {
     [SerializeField] private int sellingPrice;
 
@@ -16,9 +16,9 @@ public class BtnSellTowerSubscriber : BtnSubscriber
     }
     protected override void Execute()
     {
-        if (goldComponent.AddGold(sellingPrice))
-            panelUpgradeController.SellTower();
-
+        goldComponent.AddGold(sellingPrice);
+        panelUpgradeController.SellTower();
+        panelUpgradeController.Tower.EnableTowerPlace();
         transform.parent.gameObject.SetActive(false);
     }
 }

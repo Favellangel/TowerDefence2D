@@ -25,6 +25,9 @@ public class DeathWallBehavior : MonoBehaviour
 
     private void Death()
     {
+        // Если отключать, тогда враги не потеряют ссылку на стену
+       // gameObject.SetActive(false);
+
         Destroy(gameObject);
     }
 }

@@ -5,20 +5,18 @@ public class GoldComponent : MonoBehaviour
     [SerializeField] private Property<int> gold;
     [SerializeField] private int maxGold;
 
-    //////////// ÂÍÅØÍÈÅ ÏÎËß //////////////////
     public ActionAbstract OnChangeGold => gold;
     public IGettable<int> Gold => gold;
 
-    public bool AddGold(int addedGold)
+    public void AddGold(int addedGold)
     {
         int tmp = gold.Get + addedGold;
         if(tmp < maxGold)
         {
             gold.Set = tmp;
-            return true;
         }
-
-        return false;
+        else
+            gold.Set = maxGold;
     }
 
     public bool SubGold(int subGold)

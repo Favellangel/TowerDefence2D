@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChechCollisionComponent : MonoBehaviour
+public class CollisionComponent : MonoBehaviour
 {
     [SerializeField] private float collisionOffset;
     [SerializeField] private ContactFilter2D contactFilter;
@@ -18,13 +18,13 @@ public class ChechCollisionComponent : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public bool CheckCollision(Vector2 direction, float speed)
+    public bool CheckCollision(Vector2 direction, float distance)
     {
-        int count = rb.Cast(direction, contactFilter, hits, speed + collisionOffset);
+        int count = rb.Cast(direction, contactFilter, hits, distance + collisionOffset);
 
         for (int i = 0; i < hits.Count; i++)
         {
-            if (hits[i].collider.tag == "Barrier")
+            if (hits[i].collider.tag == Tags.barrier)
             {
                 targetCollider = hits[i].collider;
                 return true;

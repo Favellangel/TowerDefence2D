@@ -5,14 +5,13 @@ public class EnemyDeathBehavior : MonoBehaviour
     [SerializeField] private float delayDeath;
 
     private Collider2D _collider2D;
-    private EnemyStateMachine enemy;
+    private EnemyStateMachine enemyState;
     private HealthComponent healthComponent;
-
 
     private void Awake()
     {
         _collider2D = GetComponent<Collider2D>();
-        enemy = GetComponent<EnemyStateMachine>();
+        enemyState = GetComponent<EnemyStateMachine>();
         healthComponent = GetComponent<HealthComponent>();
     }
 
@@ -34,12 +33,12 @@ public class EnemyDeathBehavior : MonoBehaviour
     private void Death()
     {
         _collider2D.enabled = false;
-        enemy.enabled = false;
+        enemyState.enabled = false;
         Invoke(nameof(Kill), delayDeath);
     }
 
     private void Kill()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -8,20 +8,20 @@ public class EnemyStateMachine : MonoBehaviour
     private EnemyAttackBehavior state_Attack;
 
     private EnemyMovement enemyMovement;
-    private MakeDamageBehavior damageBehavior;
-    private ChechCollisionComponent chechCollisionComponent;
+    private EnemyMakeDamageBehavior damageBehavior;
+    private CollisionComponent chechCollisionComponent;
 
     private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
-        damageBehavior = GetComponent<MakeDamageBehavior>();
-        chechCollisionComponent = GetComponent<ChechCollisionComponent>();
+        damageBehavior = GetComponent<EnemyMakeDamageBehavior>();
+        chechCollisionComponent = GetComponent<CollisionComponent>();
         
         state_IDLE = new Enemy_IDLE_Behabior(enemyMovement, chechCollisionComponent);
         state_Attack = new EnemyAttackBehavior(damageBehavior, chechCollisionComponent);
 
-        state_IDLE.Initialize(state_Attack);
-        state_Attack.Initialize(state_IDLE);
+        state_IDLE.Bind(state_Attack);
+        state_Attack.Bind(state_IDLE);
 
         currentState = state_IDLE;
     }
@@ -59,6 +59,7 @@ public class EnemyStateMachine : MonoBehaviour
         currentState = nextState;
         currentState.Enter();
         currentState.AddAction(ChangeState);
+        print(currentState.ToString());
     }
 }
 

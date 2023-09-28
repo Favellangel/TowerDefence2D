@@ -6,14 +6,13 @@ public class RadiusAttackComponent : MonoBehaviour
 
     [SerializeField] private int lvl;
     [SerializeField] private int maxLvl;
-    [SerializeField] private int countAdded;
 
     private void OnEnable()
     {
         transform.localScale = Vector2.one * radiusAttack;
     }
 
-    public bool NextLvl()
+    public bool Increase(int countAdded)
     {
         if(lvl == maxLvl) return false;
 

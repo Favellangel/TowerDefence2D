@@ -5,18 +5,18 @@ public class EnemyAttackBehavior : State
     private float currentDelay;
 
     private Enemy_IDLE_Behabior state_IDLE;
-    private MakeDamageBehavior damageBehavior;
-    private ChechCollisionComponent collisionComponent;
+    private EnemyMakeDamageBehavior damageBehavior;
+    private CollisionComponent collisionComponent;
 
     private IDamageble damageble;
 
-    public EnemyAttackBehavior(MakeDamageBehavior damageBehavior, ChechCollisionComponent collisionComponent)
+    public EnemyAttackBehavior(EnemyMakeDamageBehavior damageBehavior, CollisionComponent collisionComponent)
     {
         this.damageBehavior = damageBehavior;
         this.collisionComponent = collisionComponent;        
     }
 
-    public void Initialize(Enemy_IDLE_Behabior state_IDLE)
+    public void Bind(Enemy_IDLE_Behabior state_IDLE)
     {
         this.state_IDLE = state_IDLE;
     }
@@ -34,7 +34,8 @@ public class EnemyAttackBehavior : State
     {
         if (damageble.ToString() == Tags._null)
             onChangeState?.Invoke(state_IDLE);
-        
+
+        Debug.Log(collisionComponent.TargetCollider.ToString());
         if (currentDelay <= 0)
         {
             damageble.TakeDamage(damageBehavior.Damage);

@@ -8,14 +8,14 @@ public class HealthComponent : MonoBehaviour
 
     private Action onDie;
 
-    //////////// ÂÍÅØÍÈÅ ÏÎËß //////////////////
+    #region Âíåøíèå ïîëÿ
+
     public ActionAbstract OnChangeHp => hp;
     public ActionAbstract OnChangeMaxHp => maxHp;
 
     public IGettable<int> Hp => hp;
     public IGettable<int> MaxHp => maxHp;
-
-    //______________________________________________
+    #endregion
 
     public void Initialize(int hp, int maxHp)
     {
