@@ -8,13 +8,13 @@ public class EnemyStateMachine : MonoBehaviour
     private EnemyAttackBehavior state_Attack;
 
     private EnemyMovement enemyMovement;
-    private EnemyMakeDamageBehavior damageBehavior;
+    private MakeDamageAndDestroyBehavior damageBehavior;
     private CollisionComponent chechCollisionComponent;
 
     private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
-        damageBehavior = GetComponent<EnemyMakeDamageBehavior>();
+        damageBehavior = GetComponent<MakeDamageAndDestroyBehavior>();
         chechCollisionComponent = GetComponent<CollisionComponent>();
         
         state_IDLE = new Enemy_IDLE_Behabior(enemyMovement, chechCollisionComponent);

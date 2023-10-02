@@ -3,18 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GraphicsRaycastComponent : MonoBehaviour
+public class GraphicsRaycastComponent 
 {
-    private EventSystem eventSystem;
-
     private PointerEventData eventData;
     private List<RaycastResult> results = new List<RaycastResult>();
-
-    private void Awake()
-    {
-        eventSystem = FindObjectOfType<EventSystem>();
-        eventData = new PointerEventData(eventSystem);
-    }
 
     public GraphicsRaycastComponent(EventSystem eventSystem)
     {

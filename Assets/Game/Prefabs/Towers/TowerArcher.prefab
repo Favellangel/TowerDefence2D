@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.6
   bulletPrefab: {fileID: 4329096481022322514, guid: c414ed19a7aa1a14283adf8ca150911d, type: 3}
+  lvl: 1
+  maxLvl: 5
 --- !u!1 &7059336602954917775
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +182,7 @@ Transform:
   - {fileID: 3248158579723834533}
   - {fileID: 1384877426384435848}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7183959682761885023
 MonoBehaviour:

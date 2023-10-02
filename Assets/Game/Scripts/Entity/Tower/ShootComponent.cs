@@ -5,6 +5,9 @@ public class ShootComponent : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private GameObject bulletPrefab;
 
+    [SerializeField] private int lvl;
+    [SerializeField] private int maxLvl;
+
     private bool isShoot;
 
     public void Shoot()
@@ -17,7 +20,20 @@ public class ShootComponent : MonoBehaviour
     }
 
     private void DelayShoot()
-    {       
+    {
         isShoot = false;
+    }
+
+    public bool IsMaxLvl()
+    {
+        if (lvl == maxLvl) return true;
+     
+        return false;
+    }
+
+    public void DeacreaseFireRate(float countAdded)
+    {
+        lvl++;
+        fireRate -= (countAdded / 10);
     }
 }

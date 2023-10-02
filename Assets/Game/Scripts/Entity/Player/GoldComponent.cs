@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class GoldComponent : MonoBehaviour
 {
-    [SerializeField] private Property<int> gold;
+    [SerializeField] private Variable<int> gold;
     [SerializeField] private int maxGold;
 
-    public ActionAbstract OnChangeGold => gold;
+    public IStringable GoldTxt => gold;
     public IGettable<int> Gold => gold;
+    public IEventable OnChangeGold => gold;
 
     public void AddGold(int addedGold)
     {

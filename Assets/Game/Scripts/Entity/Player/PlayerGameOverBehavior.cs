@@ -1,15 +1,24 @@
 using UnityEngine;
 
-public class PlayerGameOverBehavior : MonoBehaviour
+public class PlayerGameOverBehavior : MonoBehaviour, IAwakable, IBindable, IEnable
 {
     private IEventable onDie;
 
-    private void Awake()
+    private GameObject panelGameOver;
+    private PanelGameOverController gameOverController;
+
+    public void Initialize()
     {
         onDie = GetComponent<HealthComponent>();
     }
 
-    private void OnEnable()
+    public void Bind()
+    {
+        gameOverController = FindObjectOfType<PanelGameOverController>(true);
+        panelGameOver = gameOverController.gameObject;
+    }
+
+    public void Enable()
     {
         onDie.AddAction(GameOver);
     }
@@ -26,7 +35,7 @@ public class PlayerGameOverBehavior : MonoBehaviour
 
     public void GameOver()
     {
+        panelGameOver.SetActive(true);
         Time.timeScale = 0;
-        // отобразить меню поражения через пару сек
     }
 }

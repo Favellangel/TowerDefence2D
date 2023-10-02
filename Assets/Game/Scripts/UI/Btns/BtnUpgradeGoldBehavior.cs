@@ -13,16 +13,16 @@ public class BtnUpgradeGoldBehavior : BtnSubscriber
     protected override void OnEnable()
     {
         base.OnEnable();
-        Deactivate();
+        TryDeactivate();
     }
 
     protected override void Execute()
     {
         goldMainerUpdater.NextLvl();
-        Deactivate();
+        TryDeactivate();
     }
 
-    private void Deactivate()
+    private void TryDeactivate()
     {
         if (goldMainerUpdater.CanLvlUp()) return;
 

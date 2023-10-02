@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class BtnTowerAreaUpgradeBehavior : BtnSubscriber
+public class BtnTowerFireRateUpgradeBehavior : BtnSubscriber
 {
     [SerializeField] private int cost;
-    [SerializeField] private int radiusAttackAdded;
+    [SerializeField] private int fireRateAdded;
 
     private GoldComponent goldComponent;
     private PanelUpgradeController panelUpgrade;
@@ -21,7 +21,7 @@ public class BtnTowerAreaUpgradeBehavior : BtnSubscriber
     {
         base.OnEnable();
 
-        if (panelUpgrade.Tower.RadiusAttack.IsMaxLvl())
+        if (panelUpgrade.Tower.ShootComponent.IsMaxLvl()) 
             btn.interactable = false;
         else
             btn.interactable = true;
@@ -30,14 +30,14 @@ public class BtnTowerAreaUpgradeBehavior : BtnSubscriber
     protected override void Execute()
     {
         if (panelUpgrade.Tower == false) return;
-        if (goldComponent.SubGold(cost) == false) return;        
+        if (goldComponent.SubGold(cost) == false) return;
 
-        if (panelUpgrade.Tower.RadiusAttack.IsMaxLvl())
+        if (panelUpgrade.Tower.ShootComponent.IsMaxLvl()) 
         {
             btn.interactable = false;
             return;
         }
 
-        panelUpgrade.Tower.RadiusAttack.Increase(radiusAttackAdded);
+        panelUpgrade.Tower.ShootComponent.DeacreaseFireRate(fireRateAdded);
     }
 }

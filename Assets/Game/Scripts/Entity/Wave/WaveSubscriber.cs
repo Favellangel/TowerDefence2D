@@ -9,7 +9,7 @@ public class WaveSubscriber : MonoBehaviour
 
     private void Awake()
     {
-        onNextWave = GetComponent<WaveComponent>();
+        onNextWave = GetComponent<WaveComponent>().onChangeWave;
         Player player = FindObjectOfType<Player>();
 
         spawnerComponents = FindObjectsOfType<SpawnerComponent>();

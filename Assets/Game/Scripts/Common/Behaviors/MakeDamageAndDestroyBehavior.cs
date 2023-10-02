@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMakeDamageBehavior : MonoBehaviour
+public class MakeDamageAndDestroyBehavior : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private float delayAttack;

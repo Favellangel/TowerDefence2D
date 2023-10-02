@@ -5,12 +5,12 @@ public class EnemyAttackBehavior : State
     private float currentDelay;
 
     private Enemy_IDLE_Behabior state_IDLE;
-    private EnemyMakeDamageBehavior damageBehavior;
+    private MakeDamageAndDestroyBehavior damageBehavior;
     private CollisionComponent collisionComponent;
 
     private IDamageble damageble;
 
-    public EnemyAttackBehavior(EnemyMakeDamageBehavior damageBehavior, CollisionComponent collisionComponent)
+    public EnemyAttackBehavior(MakeDamageAndDestroyBehavior damageBehavior, CollisionComponent collisionComponent)
     {
         this.damageBehavior = damageBehavior;
         this.collisionComponent = collisionComponent;        

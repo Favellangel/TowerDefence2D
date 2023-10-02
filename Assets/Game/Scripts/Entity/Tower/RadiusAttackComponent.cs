@@ -12,13 +12,17 @@ public class RadiusAttackComponent : MonoBehaviour
         transform.localScale = Vector2.one * radiusAttack;
     }
 
-    public bool Increase(int countAdded)
+    public bool IsMaxLvl()
     {
-        if(lvl == maxLvl) return false;
+        if (lvl == maxLvl) return true;
 
+        return false;
+    }
+
+    public void Increase(int countAdded)
+    {
         lvl++;
         radiusAttack += countAdded;
         transform.localScale = Vector2.one * radiusAttack;
-        return true;
     }
 }

@@ -3,14 +3,6 @@ using UnityEngine.EventSystems;
 
 public class ClickToScreen : MonoBehaviour
 {
-    private PanelSelected currentPanel;
-    private SelectComponent selectComponent;
-
-    private PhisicsRaycastComponent phisicsRaycastComponent;
-    private GraphicsRaycastComponent UI_RaycastComponent;
-
-    private static ClickToScreen Instance;
-
     private void Awake()
     {
         if (Instance == null) 
@@ -45,4 +37,12 @@ public class ClickToScreen : MonoBehaviour
             selectComponent.Deselect();
         }
     }
+
+    private PanelSelected currentPanel;
+    private SelectComponent selectComponent;
+
+    private PhisicsRaycastComponent phisicsRaycastComponent;
+    private GraphicsRaycastComponent UI_RaycastComponent;
+
+    private static ClickToScreen Instance;
 }

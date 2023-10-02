@@ -3,13 +3,18 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private Collider2D towerPlaceCollider;
-    private RadiusAttackComponent radiusAttackComponent;
 
-    public RadiusAttackComponent RadiusAttackComponent => radiusAttackComponent;
+    private ShootComponent shootComponent;
+    private RadiusAttackComponent radiusAttack;
+
+    public ShootComponent ShootComponent => shootComponent;
+    public RadiusAttackComponent RadiusAttack => radiusAttack;
+
 
     private void Awake()
     {
-        radiusAttackComponent = GetComponentInChildren<RadiusAttackComponent>();
+        shootComponent = GetComponentInChildren<ShootComponent>();
+        radiusAttack = GetComponentInChildren<RadiusAttackComponent>();
     }
 
     public void SetTowerPlace(Collider2D towerPlaceCollider)

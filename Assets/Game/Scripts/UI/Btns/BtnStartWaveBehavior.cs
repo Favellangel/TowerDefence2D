@@ -15,7 +15,6 @@ public class BtnStartWaveBehavior : BtnSubscriber
     protected override void OnEnable()
     {
         base.OnEnable();
-        waveComponent.AddActionNextWave(SetDisable);
     }
 
     protected override void Execute()

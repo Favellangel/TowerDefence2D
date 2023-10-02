@@ -24,7 +24,7 @@ public class SpawnerComponent : MonoBehaviour, IAwakable
 
     public void StartSpawn()
     {
-        if (wave != waveComponent.CurrentWave) return;
+        if (wave != waveComponent.Wave.Get) return;
         StartCoroutine(Spawn());
     }
 
@@ -45,6 +45,7 @@ public class SpawnerComponent : MonoBehaviour, IAwakable
         {
             GameObject enemy = Instantiate(unitData.prefab, transform.position, Quaternion.identity);
             enemy.SetActive(false);
+            enemy.hideFlags = HideFlags.HideInHierarchy;
 
             if (enemy.TryGetComponent(out EnemyMovement enemyMovement) == false) continue;
                 

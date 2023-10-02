@@ -1,37 +1,15 @@
-using TMPro;
-using UnityEngine;
-
-public class CurrentGoldTxt : MonoBehaviour
+public class CurrentGoldTxt : TxtMeshUpdater
 {
-    private TextMeshProUGUI text;
     private GoldComponent goldComponent;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Player player = FindObjectOfType<Player>();
+        base.Awake();
+
+        Player player = FindObjectOfType<Player>(true);
         goldComponent = player.GetComponent<GoldComponent>();
 
-        text = GetComponent<TextMeshProUGUI>();
-    }
-
-    private void OnEnable()
-    {
-        Initialize();
-    }
-
-    private void OnDisable()
-    {
-        goldComponent.OnChangeGold.RemoveAction(UpdateTxt);
-    }
-
-    public void Initialize()
-    {
-        goldComponent.OnChangeGold.AddAction(UpdateTxt);
-        UpdateTxt();
-    }
-
-    public void UpdateTxt()
-    {
-        text.text = goldComponent.Gold.Get.ToString();
+        currentTxt = goldComponent.GoldTxt;
+        onChange = goldComponent.OnChangeGold;
     }
 }

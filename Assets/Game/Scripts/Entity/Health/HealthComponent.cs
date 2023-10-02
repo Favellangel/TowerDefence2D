@@ -3,19 +3,22 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour, IEventable
 {
-    [SerializeField] private Property<int> hp;
-    [SerializeField] private Property<int> maxHp;
+    [SerializeField] private Variable<int> hp;
+    [SerializeField] private Variable<int> maxHp;
 
     private Action onDie;
     Action IEventable.OnChange { get => onDie; set => onDie = value; }
 
     #region Внешние поля
 
-    public ActionAbstract OnChangeHp => hp;
-    public ActionAbstract OnChangeMaxHp => maxHp;
-
     public IGettable<int> Hp => hp;
+    public IEventable onChangeHp => hp;
+    public IStringable HpTxt => hp;
+
     public IGettable<int> MaxHp => maxHp;
+    public IEventable onChangeMaxHp => maxHp;
+    public IStringable MaxHpTxt => maxHp;
+
     #endregion
 
     public void Initialize(int hp, int maxHp)

@@ -1,26 +1,21 @@
-using System.Collections;
 using UnityEngine;
 
 public class LifeTimeController : MonoBehaviour
 {
-    [SerializeField] private float _lifeTime;
+    [SerializeField] private float lifeTime;
 
-    private Transform target;   
-
-    private void Awake()
-    {
-        target = transform;
-    }
+    private float currentDelay;
 
     private void OnEnable()
     {
-        StartCoroutine(SelfDestroyTimer());
+        currentDelay = lifeTime;
     }
 
-    IEnumerator SelfDestroyTimer()
+    private void Update()
     {
-        yield return new WaitForSeconds(_lifeTime);
-        //gameObject.SetActive(false);
-        Destroy(gameObject);
+        if(currentDelay > 0)
+            currentDelay -= Time.deltaTime;
+        else
+            Destroy(gameObject);
     }
 }

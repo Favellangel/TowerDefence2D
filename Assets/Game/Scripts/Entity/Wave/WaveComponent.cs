@@ -1,17 +1,15 @@
-using System;
 using UnityEngine;
 
-public class WaveComponent : MonoBehaviour, IEventable
+public class WaveComponent : MonoBehaviour
 {
-    [SerializeField] private int currentWave;
+    [SerializeField] private Variable<int> currentWave;
     [SerializeField] private int countWave;
 
     private static WaveComponent instance;
 
-    private Action onNextWave;
-    Action IEventable.OnChange { get => onNextWave; set => onNextWave = value; }
-
-    public int CurrentWave => currentWave;
+    public IGettable<int> Wave => currentWave;
+    public IEventable onChangeWave => currentWave;
+    public IStringable WaveTxt => currentWave;
     public int CountWave => countWave;
 
 
@@ -23,22 +21,11 @@ public class WaveComponent : MonoBehaviour, IEventable
             gameObject.SetActive(false);        
     }
 
-    public void AddActionNextWave(Action action)
-    {
-        //onNextWave += action;
-    }
-
-    public void RemoveActionNextWave(Action action)
-    {
-        //onNextWave -= action;
-    }
-
     public void NextWave()
     {
-        if (currentWave >= countWave)
+        if (currentWave.Get >= countWave)
             return;
 
-        currentWave++;
-        onNextWave?.Invoke();
+        currentWave.Set = currentWave.Get + 1;
     }
 }
