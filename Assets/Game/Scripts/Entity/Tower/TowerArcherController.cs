@@ -4,25 +4,24 @@ public class TowerArcherController : MonoBehaviour
 {
     private ShootComponent shootComponent;
     private RotateComponent rotateComponent;
-    private FindTargetComponent findTargetComponent;
-
+    private FindTargetBehavior findTarget;
 
     private void Awake()
     {
         shootComponent = GetComponentInChildren<ShootComponent>();
         rotateComponent = GetComponentInChildren<RotateComponent>();
-        findTargetComponent = GetComponentInChildren<FindTargetComponent>();
+        findTarget = GetComponentInChildren<FindTargetBehavior>();
     }
 
     private void Update()
     {
-        if (findTargetComponent.Count <= 0)
+        if(findTarget.Target == null)
         {
             rotateComponent.Rotate(transform.position);
             return;
         }
 
-        rotateComponent.Rotate(findTargetComponent.GetTarget(0).transform.position);
+        rotateComponent.Rotate(findTarget.Target.transform.position);
         shootComponent.Shoot();
     }
 }

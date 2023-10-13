@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BtnBuildTowerBehavior : BtnSubscriber
+public class BtnBuildTower : BtnSubscriber
 {
     [SerializeField] private int costTower;
     [SerializeField] private GameObject towerPrefab;
@@ -30,9 +30,9 @@ public class BtnBuildTowerBehavior : BtnSubscriber
         {
             GameObject tower = Instantiate(towerPrefab, panelBuildTowerController.transform.position, Quaternion.identity);
             tower.GetComponent<Tower>().SetTowerPlace(towerPlaceSelected.Collider);
+            towerPlaceSelected.Disable();
         }
 
-        towerPlaceSelected.Disable();
         transform.parent.gameObject.SetActive(false);
     }
 }

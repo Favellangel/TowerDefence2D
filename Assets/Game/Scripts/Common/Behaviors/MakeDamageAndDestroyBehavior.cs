@@ -13,6 +13,7 @@ public class MakeDamageAndDestroyBehavior : MonoBehaviour
         if (!collision.TryGetComponent(out IDamageble damageble)) return;        
 
         damageble.TakeDamage(damage);
-        Destroy(gameObject);        
+       //Destroy(gameObject);        
+       gameObject.SetActive(false);
     }
 }

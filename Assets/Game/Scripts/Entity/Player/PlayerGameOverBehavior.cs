@@ -1,41 +1,23 @@
 using UnityEngine;
 
-public class PlayerGameOverBehavior : MonoBehaviour, IAwakable, IBindable, IEnable
+public class PlayerGameOverBehavior : Subscriber, IAwakable, IBindable
 {
-    private IEventable onDie;
-
     private GameObject panelGameOver;
-    private PanelGameOverController gameOverController;
 
     public void Initialize()
     {
-        onDie = GetComponent<HealthComponent>();
+        onAction = GetComponent<HealthComponent>();
     }
 
     public void Bind()
     {
-        gameOverController = FindObjectOfType<PanelGameOverController>(true);
+        PanelGameOverController gameOverController = FindObjectOfType<PanelGameOverController>(true);
         panelGameOver = gameOverController.gameObject;
     }
 
-    public void Enable()
-    {
-        onDie.AddAction(GameOver);
-    }
-
-    private void OnDisable()
-    {
-        onDie.RemoveAction(GameOver);
-    }
-
-    private void OnDestroy()
-    {
-        onDie.RemoveAction(GameOver);
-    }
-
-    public void GameOver()
+    public override void Execute()
     {
         panelGameOver.SetActive(true);
-        Time.timeScale = 0;
+        GameTime.StopGame();
     }
 }

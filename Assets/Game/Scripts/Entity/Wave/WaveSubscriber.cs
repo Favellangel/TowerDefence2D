@@ -5,7 +5,7 @@ public class WaveSubscriber : MonoBehaviour
     private IEventable onNextWave;
     private GoldMinerUpdater goldMinerUpdater;
     private SpawnerComponent[] spawnerComponents;
-    private BtnStartWaveBehavior btnStartWaveBehavior;
+    private BtnStartWave btnStartWaveBehavior;
 
     private void Awake()
     {
@@ -14,7 +14,7 @@ public class WaveSubscriber : MonoBehaviour
 
         spawnerComponents = FindObjectsOfType<SpawnerComponent>();
         goldMinerUpdater = player.GetComponent<GoldMinerUpdater>();
-        btnStartWaveBehavior = FindObjectOfType<BtnStartWaveBehavior>(true);
+        btnStartWaveBehavior = FindObjectOfType<BtnStartWave>(true);
     }
 
     private void OnEnable()

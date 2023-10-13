@@ -1,5 +1,5 @@
 using UnityEngine;
-public class BtnStartWaveBehavior : BtnSubscriber
+public class BtnStartWave : BtnSubscriber
 {
     [SerializeField] private float delayBtnShow;    
     [SerializeField] private float delayWaveRestart;    

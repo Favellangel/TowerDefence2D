@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Panel : MonoBehaviour, IAwakable
+public abstract class Panelmoving : MonoBehaviour, IAwakable
 {
     private Transform _transform;
 

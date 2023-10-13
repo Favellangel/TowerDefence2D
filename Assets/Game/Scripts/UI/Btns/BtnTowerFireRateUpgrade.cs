@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BtnTowerFireRateUpgradeBehavior : BtnSubscriber
+public class BtnTowerFireRateUpgrade : BtnSubscriber
 {
     [SerializeField] private int cost;
     [SerializeField] private int fireRateAdded;

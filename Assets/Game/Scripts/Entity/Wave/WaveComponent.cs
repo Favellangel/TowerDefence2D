@@ -15,17 +15,13 @@ public class WaveComponent : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
-            gameObject.SetActive(false);        
+        if (instance == null) instance = this;
+        else gameObject.SetActive(false);        
     }
 
     public void NextWave()
     {
-        if (currentWave.Get >= countWave)
-            return;
-
+        if (currentWave.Get >= countWave) return;
         currentWave.Set = currentWave.Get + 1;
     }
 }

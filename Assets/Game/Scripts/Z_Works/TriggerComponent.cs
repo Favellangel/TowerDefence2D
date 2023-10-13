@@ -23,7 +23,7 @@ public class TriggerComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Tags.enemy) == false) return;
+        //if (collision.CompareTag(Tags.enemy) == false) return;
 
         count++;
         target = collision.gameObject;
@@ -32,7 +32,7 @@ public class TriggerComponent : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag(Tags.enemy) == false) return;
+        //if (collision.CompareTag(Tags.enemy) == false) return;
         if(count == 0) return;
         
         count--;

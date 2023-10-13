@@ -14,18 +14,18 @@ public abstract class TxtMeshUpdater: MonoBehaviour
         txtComponent = GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         onChange.AddAction(UpdateTxt);
         UpdateTxt();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         onChange.RemoveAction(UpdateTxt);
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         onChange.RemoveAction(UpdateTxt);
     }

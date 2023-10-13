@@ -1,5 +1,5 @@
 
-public class PanelBuildTowerController : Panel
+public class PanelBuildTowerController : Panelmoving
 {
 
 }

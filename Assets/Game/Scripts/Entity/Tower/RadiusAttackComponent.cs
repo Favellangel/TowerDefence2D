@@ -7,6 +7,8 @@ public class RadiusAttackComponent : MonoBehaviour
     [SerializeField] private int lvl;
     [SerializeField] private int maxLvl;
 
+    public float RadiusAttack => radiusAttack;
+
     private void OnEnable()
     {
         transform.localScale = Vector2.one * radiusAttack;

@@ -1,33 +1,13 @@
-using UnityEngine;
 
-public class DeathWallBehavior : MonoBehaviour
+public class DeathWallBehavior : Subscriber
 {
-    private IEventable onDie;
-
-    private void Awake()
+    protected void Awake()
     {
-        onDie = GetComponent<HealthComponent>();
-    }
-    private void OnEnable()
-    {
-        onDie.AddAction(Death);
+        onAction = GetComponent<HealthComponent>();
     }
 
-    private void OnDisable()
+    public override void Execute()
     {
-        onDie.RemoveAction(Death);
-    }
-
-    private void OnDestroy()
-    {
-        onDie.RemoveAction(Death);
-    }
-
-    private void Death()
-    {
-        // Если отключать, тогда враги не потеряют ссылку на стену
-       // gameObject.SetActive(false);
-
         Destroy(gameObject);
     }
 }

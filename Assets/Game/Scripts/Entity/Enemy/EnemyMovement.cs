@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Initialize(Transform[] points)
+    public void GetPoints(Transform[] points)
     {
         this.points = points;
     }

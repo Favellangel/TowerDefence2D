@@ -24,7 +24,7 @@ public class GraphicsRaycastComponent
         //print(results.Count);
         foreach (RaycastResult result in results)
         {
-            if (result.gameObject.GetComponent<Panel>() == null) continue;
+            if (result.gameObject.GetComponent<Panelmoving>() == null) continue;
 
             //print(result.gameObject.name);
             if (hit != result.gameObject) continue;

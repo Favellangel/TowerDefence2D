@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class SpawnerComponent : MonoBehaviour, IAwakable
@@ -9,14 +8,17 @@ public class SpawnerComponent : MonoBehaviour, IAwakable
     [SerializeField] private UnitData unitData;
     [SerializeField] private Transform[] points;
 
-    private WaveComponent waveComponent;
+    private int i;
 
     private GameObject[] enemies;
 
-    public int CountEnemy => enemies.Length;
+    private WaveComponent waveComponent;
+
+    public GameObject[] Enemies => enemies;
 
     public void Initialize()
     {
+        if (gameObject.activeSelf == false) return;
         waveComponent = FindObjectOfType<WaveComponent>(true);
         enemies = new GameObject[unitData.count];
         CreateEnemies();
@@ -25,18 +27,20 @@ public class SpawnerComponent : MonoBehaviour, IAwakable
     public void StartSpawn()
     {
         if (wave != waveComponent.Wave.Get) return;
-        StartCoroutine(Spawn());
+        InvokeRepeating(nameof(ActivateEnemy), startDelay, unitData.delaySpawn);
     }
 
-    private IEnumerator Spawn()
+    private void ActivateEnemy()
     {
-        yield return new WaitForSeconds(startDelay);
-       
-        for (int i = 0; i < enemies.Length; i++)
+        if (i >= enemies.Length)
         {
-            enemies[i].SetActive(true);
-            yield return new WaitForSeconds(unitData.delaySpawn);
+            CancelInvoke(nameof(ActivateEnemy));
+            i = 0;
+            return;
         }
+
+        enemies[i].SetActive(true);
+        i++;
     }
 
     private void CreateEnemies()
@@ -45,11 +49,10 @@ public class SpawnerComponent : MonoBehaviour, IAwakable
         {
             GameObject enemy = Instantiate(unitData.prefab, transform.position, Quaternion.identity);
             enemy.SetActive(false);
-            enemy.hideFlags = HideFlags.HideInHierarchy;
 
             if (enemy.TryGetComponent(out EnemyMovement enemyMovement) == false) continue;
                 
-            enemyMovement.Initialize(points);
+            enemyMovement.GetPoints(points);
             enemies[i] = enemy;
         }
     }

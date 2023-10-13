@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BtnSellTowerBehavior : BtnSubscriber
+public class BtnSellTower : BtnSubscriber
 {
     [SerializeField] private int sellingPrice;
 

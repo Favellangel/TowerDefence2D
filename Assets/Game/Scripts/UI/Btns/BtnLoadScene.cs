@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BtnLoadSceneBehavior : BtnSubscriber
+public class BtnLoadScene : BtnSubscriber
 {
     [SerializeField] private int sceneIndex;
 

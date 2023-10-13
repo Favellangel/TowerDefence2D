@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BtnTowerAreaUpgradeBehavior : BtnSubscriber
+public class BtnTowerAreaUpgrade : BtnSubscriber
 {
     [SerializeField] private int cost;
     [SerializeField] private int radiusAttackAdded;

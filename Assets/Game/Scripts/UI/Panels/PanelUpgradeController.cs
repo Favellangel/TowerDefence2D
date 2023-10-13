@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PanelUpgradeController : Panel
+public class PanelUpgradeController : Panelmoving
 {
     private GameObject currentTower;
     private Tower tower;

@@ -33,5 +33,4 @@ public class CollisionComponent : MonoBehaviour
 
         return false;
     }
-
 }
