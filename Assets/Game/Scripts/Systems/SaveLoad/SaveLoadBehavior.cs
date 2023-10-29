@@ -1,14 +1,13 @@
-using UnityEngine;
 
-public class SaveLoadBehavior : MonoBehaviour, IAwakable
+public class SaveLoadBehavior
 {
     private SaveComponent saveComponent;
     private SaveDataCollector saveDataCollector;
 
-    public void Initialize()
+    public SaveLoadBehavior(MenuDatasBehavior menuDatasBehavior)
     {
         saveComponent = new SaveComponent();
-        saveDataCollector = GetComponent<SaveDataCollector>();
+        saveDataCollector =  new SaveDataCollector(menuDatasBehavior);
     }
 
     public void SaveGame()

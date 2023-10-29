@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DestroyOnStart_EDITOR : MonoBehaviour
+public class DestroyOnStart : MonoBehaviour
 {
     private void Start()
     {

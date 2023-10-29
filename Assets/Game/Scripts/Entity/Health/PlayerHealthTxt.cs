@@ -1,5 +1,3 @@
-using TMPro;
-using UnityEngine;
 
 public class PlayerHealthTxt : TxtMeshUpdater
 {
@@ -11,7 +9,6 @@ public class PlayerHealthTxt : TxtMeshUpdater
 
         Player player = FindObjectOfType<Player>(true);
         healthComponent = player.GetComponent<HealthComponent>();
-
         onChange = healthComponent.onChangeHp;
         currentTxt = healthComponent.HpTxt;
     }

@@ -4,11 +4,12 @@ public class MenuDatasBehavior : MonoBehaviour, IAwakable
 {
     private MainMenuData datas;
 
+    public int CountOpenLvl => datas.countOpenLvl;
+
     public void Initialize()
     {
         datas = new MainMenuData();
         datas.countOpenLvl = 1;
-        DontDestroyOnLoad(this);
     }
     public MainMenuData GetDatas()
     {
@@ -18,6 +19,11 @@ public class MenuDatasBehavior : MonoBehaviour, IAwakable
     public void SetDatas(MainMenuData datas)
     {
         this.datas = datas;
-        print(datas.countOpenLvl);
+    }
+
+    public void SetCountOpenLvl(int countOpenLvl)
+    {
+        if (countOpenLvl <= datas.countOpenLvl) return;
+        datas.countOpenLvl = countOpenLvl;
     }
 }

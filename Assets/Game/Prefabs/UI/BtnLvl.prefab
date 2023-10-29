@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 5324591526738935166}
   - component: {fileID: 6266899849974192995}
   - component: {fileID: 3892530838509143505}
+  - component: {fileID: 2854664576726541505}
   m_Layer: 5
   m_Name: BtnLvl
   m_TagString: Untagged
@@ -271,3 +272,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 0
+--- !u!114 &2854664576726541505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640901979393739054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2071e40ff0b162d4491111017d59c050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

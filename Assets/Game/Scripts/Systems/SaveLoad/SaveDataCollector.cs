@@ -1,12 +1,11 @@
-using UnityEngine;
 
-public class SaveDataCollector : MonoBehaviour, IAwakable
+public class SaveDataCollector 
 {
     private MenuDatasBehavior menuDatas;
 
-    public void Initialize()
+    public SaveDataCollector(MenuDatasBehavior menuDatas)
     {
-        menuDatas = FindObjectOfType<MenuDatasBehavior>();
+        this.menuDatas = menuDatas;
     }
 
     public GameDatasForSave GetData()

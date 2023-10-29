@@ -1,18 +1,28 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWinBehavior : MonoBehaviour, IBindable, IEnable
 {
     private GameObject panelWin;
-    private WaveComponent waveComponent;
     private PoolEnemies poolEnemies;
+    private WaveComponent waveComponent;
+
+    private SaveLoadSystem saveLoadSystem;
+    private MenuDatasBehavior menuDatasBehavior;
+
+    private int indexNextScene;
 
     public void Bind()
     {
-        waveComponent = FindObjectOfType<WaveComponent>();
         poolEnemies = FindObjectOfType<PoolEnemies>();
+        waveComponent = FindObjectOfType<WaveComponent>();
 
         PanelWinController panelWinController = FindObjectOfType<PanelWinController>(true);
         panelWin = panelWinController.gameObject;
+
+        saveLoadSystem = FindAnyObjectByType<SaveLoadSystem>();
+        menuDatasBehavior = FindObjectOfType<MenuDatasBehavior>();
+        indexNextScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     public void Enable()
@@ -35,6 +45,8 @@ public class PlayerWinBehavior : MonoBehaviour, IBindable, IEnable
         
         panelWin.SetActive(true);
         CancelInvoke(nameof(CheckWin));
+        menuDatasBehavior.SetCountOpenLvl(indexNextScene);
+        saveLoadSystem.SaveLoadBehavior.SaveGame();
         GameTime.StopGame();
     }
 }
