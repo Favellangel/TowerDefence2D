@@ -3,26 +3,16 @@ using UnityEngine.UI;
 
 public class PanelSelected : MonoBehaviour
 {
-    private GameObject current;
-    private GraphicRaycaster raycaster;
-
-    public GameObject GetPanel()
-    {
-        return current;
-    }
-
-    public GraphicRaycaster GetGraphicRaycaster()
-    {
-        return raycaster;
-    }
+    public GameObject Current { get; private set; }
+    public GraphicRaycaster Raycaster { get; private set; }
 
     public void Set(GameObject panel)
-    { 
-        current = panel;
+    {
+        Current = panel;
 
-        if (current == null) 
-            raycaster = null;
+        if (Current == null) 
+            Raycaster = null;
         else
-            raycaster = current.transform.GetComponentInParent<GraphicRaycaster>();
+            Raycaster = Current.transform.GetComponentInParent<GraphicRaycaster>();
     }   
 }

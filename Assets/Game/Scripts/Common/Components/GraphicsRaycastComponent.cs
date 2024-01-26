@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class GraphicsRaycastComponent 
 {
     private PointerEventData eventData;
-    private List<RaycastResult> results = new List<RaycastResult>();
+    private List<RaycastResult> results = new();
 
     public GraphicsRaycastComponent(EventSystem eventSystem)
     {
         eventData = new PointerEventData(eventSystem);
     }
 
-    public bool IsClickOpenPanel(GameObject hit, GraphicRaycaster raycaster)
+    public bool IsClickOpenPanel(GameObject target, GraphicRaycaster raycaster)
     {
         if (raycaster == null) return false;
 
@@ -27,9 +27,9 @@ public class GraphicsRaycastComponent
             if (result.gameObject.GetComponent<Panelmoving>() == null) continue;
 
             //print(result.gameObject.name);
-            if (hit != result.gameObject) continue;
+            if (target != result.gameObject) continue;
 
-            //print("Панель, которая открыта");
+            //print("пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             return true;
         }
 

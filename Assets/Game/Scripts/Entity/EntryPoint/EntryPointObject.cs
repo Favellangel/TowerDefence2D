@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntryPointObject : EntryPoint
 {
@@ -8,4 +9,5 @@ public class EntryPointObject : EntryPoint
         monoBehaviours = GetComponentsInChildren<MonoBehaviour>();
         base.Awake();
     }
+
 }

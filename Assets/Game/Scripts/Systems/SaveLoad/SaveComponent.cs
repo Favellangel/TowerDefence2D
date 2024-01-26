@@ -12,7 +12,7 @@ public class SaveComponent
 
         bf.Serialize(fileStream, gameDatasForSave); 
         fileStream.Close();
-        Debug.Log("данные игорка сохранены");
+        Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
     }
 
     public GameDatasForSave LoadDatas()
@@ -22,12 +22,12 @@ public class SaveComponent
             FileStream fileStream = File.Open(Application.persistentDataPath + "/PlayerData.dat", FileMode.Open);
             GameDatasForSave gameDatasForSave = (GameDatasForSave)bf.Deserialize(fileStream); 
             fileStream.Close();
-            Debug.Log("данные игрока загружены");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             return gameDatasForSave;
         }
         else
         {
-            Debug.Log("Данные игрока для загрузки не найдены");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             return null;
         }
     }
@@ -37,11 +37,11 @@ public class SaveComponent
         if (File.Exists(Application.persistentDataPath + "/PlayerData.dat"))
         {
             File.Delete(Application.persistentDataPath + "/PlayerData.dat");
-            Debug.Log("данные игрока удалены");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         }
         else
         {
-            Debug.Log("Данные игрока для удаления не найдены");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         }
     }
 }

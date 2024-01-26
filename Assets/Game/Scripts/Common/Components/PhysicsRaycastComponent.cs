@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PhisicsRaycastComponent 
+public class PhysicsRaycastComponent 
 {
     private Ray ray;
     private RaycastHit2D hit;
@@ -9,10 +9,9 @@ public class PhisicsRaycastComponent
 
     public RaycastHit2D Hit => hit;
 
-    public PhisicsRaycastComponent(Vector3 origin)
+    public PhysicsRaycastComponent(Camera camera)
     {
-        _camera = Camera.main;
-        ray.origin = origin;
+        _camera = camera;
     }
 
     public void IsClickToCollider()

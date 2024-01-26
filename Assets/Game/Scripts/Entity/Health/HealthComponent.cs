@@ -9,7 +9,7 @@ public class HealthComponent : MonoBehaviour, IEventable
     private Action onDie;
     Action IEventable.OnChange { get => onDie; set => onDie = value; }
 
-    #region Внешние поля
+    #region пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
     public IGettable<int> Hp => hp;
     public IEventable onChangeHp => hp;
