@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class TriggerComponent : MonoBehaviour
 {
+    public int test;
+
     private int count;
+
     private GameObject target;
     private Action onChange;
 
